@@ -1,0 +1,234 @@
+:root {
+  --ink: #16130f;
+  --paper: rgba(249, 243, 234, 0.74);
+  --muted: #62584d;
+  --line: rgba(22, 19, 15, 0.12);
+  --strong-line: rgba(22, 19, 15, 0.22);
+  --accent-a: rgba(191, 118, 58, 0.3);
+  --accent-b: rgba(53, 90, 88, 0.24);
+  --shadow: rgba(38, 27, 17, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.76), transparent 34%),
+    linear-gradient(135deg, #f4eee4 0%, #ecdfcd 48%, #e2d4c0 100%);
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;
+}
+
+.page-shell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.texture-grid {
+  background-image:
+    linear-gradient(rgba(22, 19, 15, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 19, 15, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at center, black 36%, transparent 88%);
+}
+
+.hero {
+  position: relative;
+  width: min(1080px, 100%);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 30px 80px var(--shadow);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+}
+
+.brand-rail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(28px, 4vw, 42px);
+  border-right: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02));
+}
+
+.content {
+  display: grid;
+  gap: 24px;
+  padding: clamp(32px, 5vw, 64px);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.24rem;
+  text-transform: uppercase;
+}
+
+.monogram {
+  display: grid;
+  place-items: center;
+  width: clamp(92px, 10vw, 120px);
+  aspect-ratio: 1;
+  border: 1px solid var(--strong-line);
+  border-radius: 50%;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 5vw, 4.2rem);
+  line-height: 1;
+}
+
+.rail-note,
+.status,
+.closing {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
+h1,
+h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(4rem, 10vw, 7.2rem);
+  line-height: 0.9;
+  letter-spacing: 0.03rem;
+}
+
+.lead {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 2.1vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.language-panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.language-panel {
+  display: grid;
+  gap: 12px;
+  padding: 22px 22px 24px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 0.95;
+}
+
+.copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.closing {
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.glow {
+  position: absolute;
+  width: 42rem;
+  height: 42rem;
+  border-radius: 50%;
+  filter: blur(36px);
+}
+
+.glow-left {
+  top: -14rem;
+  left: -14rem;
+  background: var(--accent-a);
+}
+
+.glow-right {
+  right: -14rem;
+  bottom: -16rem;
+  background: var(--accent-b);
+}
+
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-rail {
+    align-items: flex-start;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .monogram {
+    width: 88px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    padding: 16px;
+  }
+
+  .content,
+  .brand-rail {
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: clamp(3.2rem, 16vw, 4.4rem);
+  }
+
+  .language-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.18rem;
+  }
+}
