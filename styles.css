@@ -112,14 +112,16 @@ h2 {
 
 .lead {
   max-width: 34rem;
-  margin: 0;
+  margin: 0 auto;
   color: var(--muted);
   font-size: clamp(1.05rem, 2.1vw, 1.25rem);
   line-height: 1.7;
+  text-align: center;
 }
 
 .logo-frame {
   width: fit-content;
+  margin: 0 auto;
   padding: 14px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.22);
@@ -172,6 +174,7 @@ h2 {
 .closing {
   padding-top: 8px;
   border-top: 1px solid var(--line);
+  text-align: center;
 }
 
 .glow {
